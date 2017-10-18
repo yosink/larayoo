@@ -2,7 +2,7 @@
   <Row class="vm-login vm-panel">
    <Col span="10" class="login-form">
      <div class="login-header">
-       <img src="../assets/img/logo.png" height="80" alt="">
+       <img src="../../static/img/logo.png" height="80" alt="">
        <p><span>VUE</span>MANAGER</p>
      </div>
      <div class="login-form">

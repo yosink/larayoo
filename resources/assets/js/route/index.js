@@ -4,10 +4,12 @@ Vue.use(VueRouter)
 
 import Home from '@/pages/Home'
 import Dashboard from '@/pages/Dashboard'
+import Login from '@/pages/Login'
 import NotFound from '@/pages/NotFound'
 
 export default new VueRouter({
     mode: 'history',
+    base: '/',
     routes: [
         {
             path: '/',
@@ -19,6 +21,10 @@ export default new VueRouter({
                     path: ''
                 }
             ]
+        },
+        {
+            path: 'login',
+            component: Login
         },
         {
             path: '*',
