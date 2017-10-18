@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
+    protected $subscribe = [
+        'App\Listeners\JWTEventListener'
+    ];
+
     /**
      * Register any events for your application.
      *
