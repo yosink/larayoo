@@ -103,6 +103,8 @@
 </template>
 <script>
 import VmMsgPush from '@/components/vm-msg-push.vue'
+import {mapGetters} from 'vuex';
+
 export default {
   name: 'home',
   components: {
@@ -110,6 +112,11 @@ export default {
   },
   mounted: function () {
     this.activeName = this.$route.name
+  },
+  computed:{
+    ...mapGetters([
+      'sidebar'
+    ])
   },
   data () {
     return {

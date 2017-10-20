@@ -593,8 +593,8 @@ MIT License: https://github.com/driftyco/ionicons
 */
 @font-face {
   font-family: "Ionicons";
-  src: url(/fonts/vendor/_iview@2.4.0@iview/src/styles/common/iconionicons.eot?2c2ae068be3b089e0a5b59abb1831550);
-  src: url(/fonts/vendor/_iview@2.4.0@iview/src/styles/common/iconionicons.eot?2c2ae068be3b089e0a5b59abb1831550#iefix) format("embedded-opentype"), url(/fonts/vendor/_iview@2.4.0@iview/src/styles/common/iconionicons.ttf?24712f6c47821394fba7942fbb52c3b2) format("truetype"), url(/fonts/vendor/_iview@2.4.0@iview/src/styles/common/iconionicons.woff?05acfdb568b3df49ad31355b19495d4a) format("woff"), url(/fonts/vendor/_iview@2.4.0@iview/src/styles/common/iconionicons.svg?621bd386841f74e0053cb8e67f8a0604#Ionicons) format("svg");
+  src: url(/fonts/vendor/_iview@2.5.1@iview/src/styles/common/iconionicons.eot?2c2ae068be3b089e0a5b59abb1831550);
+  src: url(/fonts/vendor/_iview@2.5.1@iview/src/styles/common/iconionicons.eot?2c2ae068be3b089e0a5b59abb1831550#iefix) format("embedded-opentype"), url(/fonts/vendor/_iview@2.5.1@iview/src/styles/common/iconionicons.ttf?24712f6c47821394fba7942fbb52c3b2) format("truetype"), url(/fonts/vendor/_iview@2.5.1@iview/src/styles/common/iconionicons.woff?05acfdb568b3df49ad31355b19495d4a) format("woff"), url(/fonts/vendor/_iview@2.5.1@iview/src/styles/common/iconionicons.svg?621bd386841f74e0053cb8e67f8a0604#Ionicons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -9224,6 +9224,80 @@ textarea.ivu-input-number {
   -webkit-box-shadow: 0 0 0 2px rgba(246, 0, 0, 0.2);
           box-shadow: 0 0 0 2px rgba(246, 0, 0, 0.2);
 }
+.ivu-scroll-wrapper {
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+  outline: none;
+}
+.ivu-scroll-container {
+  overflow-y: scroll;
+}
+.ivu-scroll-content {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.ivu-scroll-content-loading {
+  opacity: 0.5;
+}
+.ivu-scroll-loader {
+  text-align: center;
+  padding: 0;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+}
+.ivu-scroll-loader-wrapper {
+  padding: 5px 0;
+  height: 0;
+  background-color: inherit;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: opacity .3s, height .5s, -webkit-transform .5s;
+  transition: opacity .3s, height .5s, -webkit-transform .5s;
+  transition: opacity .3s, transform .5s, height .5s;
+  transition: opacity .3s, transform .5s, height .5s, -webkit-transform .5s;
+}
+.ivu-scroll-loader-wrapper-active {
+  height: 40px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+@-webkit-keyframes ani-demo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes ani-demo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.ivu-scroll-loader-wrapper .ivu-scroll-spinner {
+  position: relative;
+}
+.ivu-scroll-loader-wrapper .ivu-scroll-spinner-icon {
+  -webkit-animation: ani-demo-spin 1s linear infinite;
+          animation: ani-demo-spin 1s linear infinite;
+}
 .ivu-tag {
   display: inline-block;
   height: 22px;
@@ -12272,6 +12346,9 @@ tr.ivu-table-row-highlight.ivu-table-row-hover td,
 .ivu-dropdown-menu {
   min-width: 100px;
 }
+.ivu-dropdown-transfer {
+  width: auto;
+}
 .ivu-dropdown-item {
   margin: 0;
   line-height: normal;
@@ -13013,6 +13090,7 @@ span.ivu-date-picker-cells-cell-disabled.ivu-date-picker-cells-cell-selected em 
 .ivu-date-picker-transfer {
   z-index: 1060;
   max-height: none;
+  width: auto;
 }
 .ivu-picker-panel-icon-btn {
   display: inline-block;
@@ -13778,7 +13856,6 @@ span.ivu-date-picker-cells-cell-disabled.ivu-date-picker-cells-cell-selected em 
   position: absolute;
 }
 .ivu-color-picker-saturation-circle {
-  cursor: head;
   width: 4px;
   height: 4px;
   -webkit-box-shadow: 0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 1px 2px rgba(0, 0, 0, 0.4);

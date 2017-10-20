@@ -8,7 +8,7 @@
      <div class="login-form">
         <Input v-model="username" placeholder="please enter username"></Input>
         <Input v-model="password" type="password" placeholder="Please enter password"></Input>
-        <Button type="primary">Login</Button>
+        <Button type="primary" @click.native.prevent="handleLogin">Login</Button>
      </div>
      <div class="login-footer">
        <Checkbox v-model="remenber">Remenber</Checkbox>
@@ -21,6 +21,9 @@
   </Row>
 </template>
 <script>
+import { doLogin } from '@/api/login'
+import Cookie from 'js-cookie';
+
   export default {
     name: 'VmLogin',
     data: function () {
@@ -28,6 +31,15 @@
         username: '',
         password: '',
         remenber: false
+      }
+    },
+    methods: {
+      handleLogin() {
+        doLogin(this.username,this.password).then(response => {
+          // console.log(response)
+          Cookie.set('jwt', response.data.token)
+          this.$router.push('/')
+        }).catch(error => console.log(error))
       }
     }
   }

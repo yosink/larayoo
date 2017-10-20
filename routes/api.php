@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace'=>'Api'], function(){
-    Route::get('get_token','AuthenticateController@anthenticate');
+    Route::post('get_token','AuthenticateController@anthenticate');
 
     Route::group(['middleware'=>'jwt.auth'], function(){
         Route::get('get_user', 'AuthenticateController@getAuthUser');
